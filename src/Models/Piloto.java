@@ -1,9 +1,6 @@
 
 package Models;
 
-
-
-
 public class Piloto extends Pessoa{
     private String carros;
 
@@ -15,7 +12,5 @@ public class Piloto extends Pessoa{
 		super(cpf, nome, endereco);
 		this.carros = carros;
 	}
-
-
 
 }

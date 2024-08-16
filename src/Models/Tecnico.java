@@ -7,13 +7,11 @@ public class Tecnico extends Pessoa{
 
     public Tecnico() {}
 
-
         public Tecnico(String cpf, String nome, String endereco, String especialidade, int experiencia) {
 		super(cpf, nome, endereco);
 		this.carros = especialidade;
         this.experiencia = experiencia;
 	}
-
 
 	public String getEspecialidade() {
 		return especialidade;

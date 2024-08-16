@@ -13,4 +13,22 @@ public class Piloto extends Pessoa{
 		this.carros = carros;
 	}
 
+
+	public String getCarros() {
+		return carros;
+	}
+
+	public void setCarros(String carros) {
+		this.carros = carros;
+	}
+
+
+    
+	@Override
+	public String toString() {
+		return " Carros: " + getCarros() + " ";
+	}
+
+
+
 }

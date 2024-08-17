@@ -2,24 +2,23 @@
 package Models;
 
 public class Piloto extends Pessoa{
-    private String carros;
+    private String carro;
 
-    public Piloto(String cpf, String nome, String endereco, String carros) {
+    public Piloto(String cpf, String nome, String endereco, String carro) {
 		super(cpf, nome, endereco);
-		this.carros = carros;
+		this.carro = carro;
 	}
 
-	public String getCarros() {
-		return carros;
+	public String getCarro() {
+		return carro;
 	}
 
-	public void setCarros(String carros) {
-		this.carros = carros;
+	public void setCarro(String carro) {
+		this.carro = carro;
 	}
-    
+
 	@Override
 	public String toString() {
-		return " Carros: " + getCarros() + " ";
+		return super.toString() + ";" + carro;
 	}
-
 }

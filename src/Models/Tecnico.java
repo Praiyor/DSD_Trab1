@@ -29,7 +29,6 @@ public class Tecnico extends Pessoa{
 
 	@Override
 	public String toString() {
-		return " Especialidade: " + getEspecialidade() + " Experiencia: " + getEspecialidade();
+		return super.toString() + ";" + especialidade + ";" + experiencia;
 	}
-
 }

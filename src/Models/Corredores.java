@@ -48,4 +48,15 @@ public class Corredores {
     public void setTecnicos(List<Tecnico> tecnicos) {
         this.tecnicos = tecnicos;
     }
+
+    //Falta atualizar para o mesmo padrao de pessoa agora, pra facilitar a hora de mandar pro client
+    @Override
+    public String toString() {
+        return "Corredores{" +
+                "torneio='" + torneio + '\'' +
+                ", premio='" + premio + '\'' +
+                ", corredores=" + corredores +
+                ", tecnicos=" + tecnicos +
+                '}';
+    }
 }

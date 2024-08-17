@@ -1,6 +1,9 @@
 package DAO;
 
+import Exceptions.PessoaNEncontradaException;
 import Models.Pessoa;
+import Models.Piloto;
+import Models.Tecnico;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,12 +11,16 @@ import java.util.Map;
 
 public class PessoaDAO {
 
-    //Podemos usar cpf ou nomes na primeira string
-    static Map<String, Pessoa> pilotos = new HashMap<>();
-    //Acho que podemos colocar equipe tanto em piloto quanto em tecnico
-    static Map<String, Pessoa> tecnicos = new HashMap<>();
+    static Map<String, Piloto> pilotos = new HashMap<>();
+    static Map<String, Tecnico> tecnicos = new HashMap<>();
 
     private static PessoaDAO instance;
+
+    private static final String no_pilots = "Não possui pilotos registrados";
+    private static final String no_tec = "Não possui tecnicos registrados";
+
+    private static final String notFound_pilots = "Não foi possivel encontrar um piloto com o cpf passado";
+    private static final String noFound_tec = "Não foi possivel encontrar um Tecnico com o cpf passado";
 
     private PessoaDAO(){
 
@@ -26,9 +33,120 @@ public class PessoaDAO {
         return instance;
     }
 
-    public static void addPiloto(){}
-    public static void addTecnico(){}
+    public static void addPiloto(Piloto piloto){
+        pilotos.put(piloto.getCpf(), piloto);
+    }
+    public static void addTecnico(Tecnico tecnico){
+        tecnicos.put(tecnico.getCpf(), tecnico);
+    }
 
-    public static void removePiloto(){}
-    public static void removeTecnico(){}
+    public static String removePiloto(String CPF){
+        if (pilotos.isEmpty()){
+            return no_pilots;
+        }
+        if(pilotos.containsKey(CPF)){
+
+            pilotos.remove(CPF);
+
+            return "O registro do Piloto foi removido com sucesso!";
+        }
+        return notFound_pilots;
+    }
+    public static String removeTecnico(String CPF){
+        if (tecnicos.isEmpty()){
+            return no_tec;
+        }
+        if(tecnicos.containsKey(CPF)){
+
+            tecnicos.remove(CPF);
+
+            return "O registro do Tecnico foi removido com sucesso!";
+        }
+        return noFound_tec;
+    }
+
+
+    public static Piloto getPiloto(String CPF) {
+        if (pilotos.isEmpty()){
+            throw new PessoaNEncontradaException(no_pilots);
+        }
+        if (pilotos.containsKey(CPF)){
+            return pilotos.get(CPF);
+        }
+
+        throw  new PessoaNEncontradaException(notFound_pilots);
+
+    }
+
+    public static Tecnico getTecnico(String CPF){
+        if (tecnicos.isEmpty()){
+            throw new PessoaNEncontradaException(no_tec);
+        }
+        if (tecnicos.containsKey(CPF)){
+            return tecnicos.get(CPF);
+        }
+
+        throw  new PessoaNEncontradaException(noFound_tec);
+    }
+
+    public static String listPilotos(){
+        if (pilotos.isEmpty()){
+            return no_pilots;
+        }
+        StringBuilder pilots = new StringBuilder();
+
+        for(Piloto piloto : pilotos.values()){
+            pilots.append(piloto.toString());
+        }
+
+        return pilots.toString();
+
+    }
+
+    public static String listTecnicos(){
+        if (pilotos.isEmpty()){
+            return no_tec;
+        }
+        StringBuilder tecs = new StringBuilder();
+
+        for(Tecnico tec : tecnicos.values()){
+            tecs.append(tec.toString());
+        }
+
+        return tecs.toString();
+
+    }
+
+    public static String atualizaPiloto(String CPF, String endreco, String nome, String carro){
+        if (pilotos.isEmpty()){
+            return no_pilots;
+        }
+        if (pilotos.containsKey(CPF)){
+            Piloto piloto = pilotos.get(CPF);
+            piloto.setEndereco(endreco);
+            piloto.setNome(nome);
+            piloto.setCarro(carro);
+            return "Piloto atualizado com sucesso!";
+        }
+
+        return notFound_pilots;
+    }
+
+    public static String atualizaTecnico(String CPF, String endreco, String nome, String especialidade, int experiencia){
+        if (tecnicos.isEmpty()){
+            return no_tec;
+        }
+        if (tecnicos.containsKey(CPF)){
+            Tecnico tecnico = tecnicos.get(CPF);
+            tecnico.setEndereco(endreco);
+            tecnico.setNome(nome);
+            tecnico.setEspecialidade(especialidade);
+            tecnico.setExperiencia(experiencia);
+
+            return "Tecnico atualizado com sucesso!";
+        }
+
+        return noFound_tec;
+    }
+
 }

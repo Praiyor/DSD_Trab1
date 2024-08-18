@@ -33,14 +33,14 @@ public class PessoaDAO {
         return instance;
     }
 
-    public static void addPiloto(Piloto piloto){
+    public void addPiloto(Piloto piloto){
         pilotos.put(piloto.getCpf(), piloto);
     }
-    public static void addTecnico(Tecnico tecnico){
+    public void addTecnico(Tecnico tecnico){
         tecnicos.put(tecnico.getCpf(), tecnico);
     }
 
-    public static String removePiloto(String CPF){
+    public String removePiloto(String CPF){
         if (pilotos.isEmpty()){
             return no_pilots;
         }
@@ -52,7 +52,7 @@ public class PessoaDAO {
         }
         return notFound_pilots;
     }
-    public static String removeTecnico(String CPF){
+    public String removeTecnico(String CPF){
         if (tecnicos.isEmpty()){
             return no_tec;
         }
@@ -66,7 +66,7 @@ public class PessoaDAO {
     }
 
 
-    public static Piloto getPiloto(String CPF) {
+    public Piloto getPiloto(String CPF) {
         if (pilotos.isEmpty()){
             throw new PessoaNEncontradaException(no_pilots);
         }
@@ -78,7 +78,7 @@ public class PessoaDAO {
 
     }
 
-    public static Tecnico getTecnico(String CPF){
+    public Tecnico getTecnico(String CPF){
         if (tecnicos.isEmpty()){
             throw new PessoaNEncontradaException(no_tec);
         }
@@ -89,7 +89,7 @@ public class PessoaDAO {
         throw  new PessoaNEncontradaException(noFound_tec);
     }
 
-    public static String listPilotos(){
+    public String listPilotos(){
         if (pilotos.isEmpty()){
             return no_pilots;
         }
@@ -103,7 +103,7 @@ public class PessoaDAO {
 
     }
 
-    public static String listTecnicos(){
+    public String listTecnicos(){
         if (pilotos.isEmpty()){
             return no_tec;
         }
@@ -117,7 +117,7 @@ public class PessoaDAO {
 
     }
 
-    public static String atualizaPiloto(String CPF, String endreco, String nome, String carro){
+    public String atualizaPiloto(String CPF, String endreco, String nome, String carro){
         if (pilotos.isEmpty()){
             return no_pilots;
         }
@@ -132,7 +132,7 @@ public class PessoaDAO {
         return notFound_pilots;
     }
 
-    public static String atualizaTecnico(String CPF, String endreco, String nome, String especialidade, int experiencia){
+    public String atualizaTecnico(String CPF, String endreco, String nome, String especialidade, int experiencia){
         if (tecnicos.isEmpty()){
             return no_tec;
         }

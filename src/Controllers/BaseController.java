@@ -9,32 +9,32 @@ import java.io.PrintWriter;
 public class BaseController {
 
     protected String[] request;
-    protected PrintWriter out;
+    protected PrintWriter output;
 
-    public BaseController(String[] request, PrintWriter out){
+    public BaseController(String[] request, PrintWriter output){
         this.request = request;
-        this.out = out;
+        this.output = output;
     }
 
-    public void selecionarController() {
+    public void selecionarController() throws IOException {
         //Provavelmente vamos colocar o tipo da pessoa ou se é corredores no segundo espaço da string
         //Tipo UPDATE;PILOTO
         String operacao = request[1];
         switch (operacao) {
             case "PILOTO":
-                PilotoController pilotoController = new PilotoController(request, out);
+                PilotoController pilotoController = new PilotoController(request, output);
                 pilotoController.selecionarOperacao();
                 break;
             case "TECNICO":
-                TecnicoController tecnicoControllert = new TecnicoController(request, out);
+                TecnicoController tecnicoControllert = new TecnicoController(request, output);
                 tecnicoControllert.selecionarOperacao();
                 break;
             case "CORREDORES":
-                CorredoresController corredoresController = new CorredoresController(request, out);
+                CorredoresController corredoresController = new CorredoresController(request, output);
                 corredoresController.selecionarOperacao();
                 break;
             default:
-                out.println("Dados inválidos");
+                output.println("Dados inválidos");
         }
     }
 }

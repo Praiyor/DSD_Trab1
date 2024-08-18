@@ -12,11 +12,11 @@ public class CorredoresService {
     private final CorredoresDAO corredoresdao = CorredoresDAO.getInstance();
 
     protected String[] request;
-    protected PrintWriter out;
+    protected PrintWriter output;
 
-    public CorredoresService(String[] request, PrintWriter out) throws IOException {
+    public CorredoresService(String[] request, PrintWriter output) throws IOException {
         this.request = request;
-        this.out = out;
+        this.output = output;
     }
 
 

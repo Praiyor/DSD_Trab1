@@ -11,11 +11,12 @@ public class PilotoService {
     private final PessoaDAO pessoadao = PessoaDAO.getInstance();
 
     protected String[] request;
-    protected PrintWriter out;
+    protected PrintWriter output;
+    String outputMessage;
 
-    public PilotoService(String[] request, PrintWriter out) throws IOException {
+    public PilotoService(String[] request, PrintWriter output) throws IOException {
         this.request = request;
-        this.out = out;
+        this.output = output;
     }
 
 
@@ -25,19 +26,50 @@ public class PilotoService {
 //        String nome = request[3];
 //        String endereco = request[4];
 //        String carro = request[5];
-        Piloto piloto = new Piloto(request[2], request[3],request[4],request[5]);
-        pessoadao.addPiloto(piloto);
+
+        try {
+            Piloto piloto = new Piloto(request[2], request[3],request[4],request[5]);
+            pessoadao.addPiloto(piloto);
+
+            outputMessage = "Piloto cadastrado com sucesso";
+
+        }catch (Exception e){
+            outputMessage = "Ocorreu um erro ao tentar cadastrar o piloto, segue o erro:" + e.getMessage();
+        }
+
+        output.println(outputMessage);
     }
     public void update(){
+        //Fiquei com preguiça de fazer esse
 //        pessoadao.atualizaPiloto();
     }
     public void get(){
-//        pessoadao.getPiloto();
+        try {
+           Piloto piloto = pessoadao.getPiloto(request[2]);
+           outputMessage = piloto.toString();
+        }catch (Exception e){
+            outputMessage = e.getMessage();
+        }
+
+        output.println(outputMessage);
     }
     public void delete(){
-//        pessoadao.removePiloto();
+        try {
+            outputMessage = pessoadao.removePiloto(request[2]);
+        }catch (Exception e){
+            outputMessage = e.getMessage();
+        }
+
+        output.println(outputMessage);
     }
     public void list(){
-        pessoadao.listPilotos();
+        try {
+            //Precisamos testar pra ver se vem tudo correto
+            outputMessage = pessoadao.listPilotos();
+        }catch (Exception e){
+            outputMessage = e.getMessage();
+        }
+
+        output.println(outputMessage);
     }
 }

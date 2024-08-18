@@ -10,11 +10,9 @@ public class Corredores {
     private List<Piloto> corredores;
     private List<Tecnico> tecnicos;
 
-    public Corredores(String torneio, String premio, List<Piloto> corredores, List<Tecnico> tecnicos){
+    public Corredores(String torneio, String premio){
         this.torneio = torneio;
         this.premio = torneio;
-        this.corredores = corredores;
-        this.tecnicos = tecnicos;
     }
 
     public String getTorneio(){

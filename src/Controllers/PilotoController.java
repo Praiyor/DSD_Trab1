@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.PessoaDAO;
+import Services.PilotoService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,31 +13,37 @@ public class PilotoController {
     protected String[] request;
 
     //Dar o print no console do client pelo controller mesmo
-    protected PrintWriter out;
+    protected PrintWriter output;
 
-    public PilotoController(String[] request, PrintWriter out){
+
+    public PilotoController(String[] request, PrintWriter output){
         this.request = request;
-        this.out = out;
+        this.output = output;
     }
 
-    //falta implementar o switch que vai chamar o service de piloto e o metodo referente do switch, esse switch vai ser chaamdo pelo basecontroller
-    //Que vai ter um switch dentro dele q tbm vai ver qual controller ele deverá chamar
 
-    public void selecionarOperacao(){
-        String operacao = request[0];
-        switch (operacao){
+    public void selecionarOperacao() throws IOException {
+        PilotoService pilotoService = new PilotoService(request, output);
+
+        //Operacao a ser selecionada
+        switch (request[0]){
             case "INSERT":
+                pilotoService.add();
                 break;
             case"UPDATE":
+                pilotoService.update();
                 break;
             case"GET":
+                pilotoService.get();
                 break;
             case"DELETE":
+                pilotoService.delete();
                 break;
             case"LIST":
+                pilotoService.list();
                 break;
             default:
-                out.println("Dados inválidos");
+                output.println("Dados inválidos");
         }
     }
 }

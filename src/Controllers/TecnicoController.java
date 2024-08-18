@@ -2,11 +2,10 @@ package Controllers;
 
 import DAO.PessoaDAO;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class TecnicoController {
-
-    private static PessoaDAO pessoaRepository;
 
     protected String[] request;
     protected PrintWriter out;
@@ -16,5 +15,24 @@ public class TecnicoController {
         this.out = out;
     }
 
+
+
+    public void selecionarOperacao(){
+        String operacao = request[0];
+        switch (operacao){
+            case "INSERT":
+                break;
+            case"UPDATE":
+                break;
+            case"GET":
+                break;
+            case"DELETE":
+                break;
+            case"LIST":
+                break;
+            default:
+                out.println("Dados inválidos");
+        }
+    }
 
 }

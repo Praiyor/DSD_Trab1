@@ -41,10 +41,9 @@ public class PilotoService {
     }
     public void update(){
  // tem que testar
- 
+
         try {
-            Piloto piloto = pessoadao.atualizaPiloto(request[2], request[3],request[4],request[5]);
-            outputMessage = piloto.toString();
+          
          }catch (Exception e){
              outputMessage = e.getMessage();
          }

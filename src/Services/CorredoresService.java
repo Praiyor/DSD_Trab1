@@ -46,8 +46,8 @@ public class CorredoresService {
         // tem que testar fiz aquela gambira
 
         try {
-            Corredor corredor = corredordao.atualizaCorredores(request[2], request[3]);
-            outputMessage = corredor.toString();
+            
+            
         } catch (Exception e) {
             outputMessage = e.getMessage();
         }
@@ -57,7 +57,7 @@ public class CorredoresService {
 
     public void get() {
         try {
-            Corredores corredor = corredoresdao.getCorredor(request[2]);
+            Corredores corredor = corredoresdao.getCorredores(request[2]);
             outputMessage = corredor.toString();
         } catch (Exception e) {
             outputMessage = e.getMessage();

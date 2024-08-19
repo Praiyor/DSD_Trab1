@@ -19,17 +19,20 @@ public class CorredoresController {
 
         switch (request[0]){
             case "INSERT":
-                //Pode alterar para poder criar o corredores sem ter a lista de pilotos e tecnicos e dps adicionar um metodo para adicionar eles
-                //da pra pegar e só colocar um metodo adicionar piloto pelo cpf a corredores ou algo do tipo
-                //Qualquer coisa nesse sentido deve funcionar e ficar consistente
+                //Segui o msm padrão da classe Piloto.
+                corredorService.add();
                 break;
             case"UPDATE":
+            corredorService.update();
                 break;
             case"GET":
+            corredorService.get();
                 break;
             case"DELETE":
+            corredorService.delete();
                 break;
             case"LIST":
+            corredorService.list();
                 break;
             default:
                 output.println("Dados inválidos");

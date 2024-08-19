@@ -38,12 +38,16 @@ public class TecnicoService {
         output.println(outputMessage);
     }
     public void update(){
+        // tem que testar 
         try {
+            int experiencia = Integer.parseInt(request[6]);
+            Tecnico tecnico = pessoadao.atualizaTecnico(request[2],request[3],request[4],request[5], experiencia);
 
         }catch (Exception e){
-
+            outputMessage = e.getMessage();
         }
-//        pessoadao.atualizaTecnico();
+
+        output.println(outputMessage);
     }
     public void get(){
         try {

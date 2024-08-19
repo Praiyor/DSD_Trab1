@@ -2,6 +2,7 @@ package Services;
 
 import DAO.CorredoresDAO;
 import DAO.PessoaDAO;
+import Models.Corredores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ public class CorredoresService {
 
     protected String[] request;
     protected PrintWriter output;
+    String outputMessage;
 
     public CorredoresService(String[] request, PrintWriter output) throws IOException {
         this.request = request;
@@ -27,8 +29,8 @@ public class CorredoresService {
         // String carro = request[5];
 
         try {
-            Corredor corredor = new Corredor(request[2], request[3], request[4], request[5]);
-            corredordao.addCorredor(corredor);
+            Corredores corredor = new Corredores(request[2], request[3]);
+            corredoresdao.addCorredores(corredor);
 
             outputMessage = "Corredor cadastrado com sucesso";
 
@@ -55,7 +57,7 @@ public class CorredoresService {
 
     public void get() {
         try {
-            Corredor corredor = corredordao.getCorredor(request[2]);
+            Corredores corredor = corredoresdao.getCorredor(request[2]);
             outputMessage = corredor.toString();
         } catch (Exception e) {
             outputMessage = e.getMessage();
@@ -66,7 +68,7 @@ public class CorredoresService {
 
     public void delete() {
         try {
-            outputMessage = corredordao.removeCorredor(request[2]);
+            outputMessage = corredoresdao.removeCorredores(request[2]);
         } catch (Exception e) {
             outputMessage = e.getMessage();
         }
@@ -77,7 +79,7 @@ public class CorredoresService {
     public void list() {
 
         try {
-            outputMessage = corredordao.listPilotos();
+            outputMessage = corredoresdao.listCorredores();
         } catch (Exception e) {
             outputMessage = e.getMessage();
         }

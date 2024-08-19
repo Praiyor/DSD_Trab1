@@ -1,7 +1,7 @@
  package DAO;
 
 import Models.Corredores;
-import Exceptions.CorredoresNaoEncontradosException;
+import Exceptions.CorredorNEncontradoException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,12 +42,12 @@ public class CorredoresDAO {
 
     public Corredores getCorredores(String torneio) {
         if (corredoresMap.isEmpty()) {
-            throw new CorredoresNaoEncontradosException(noCorredores);
+            throw new CorredorNEncontradoException(noCorredores);
         }
         if (corredoresMap.containsKey(torneio)) {
             return corredoresMap.get(torneio);
         }
-        throw new CorredoresNaoEncontradosException(notFound);
+        throw new CorredorNEncontradoException(notFound);
     }
 
     public String listCorredores() {

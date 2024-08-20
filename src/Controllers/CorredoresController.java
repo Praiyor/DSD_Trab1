@@ -20,19 +20,19 @@ public class CorredoresController {
         switch (request[0]){
             case "INSERT":
                 //Segui o msm padrão da classe Piloto.
-                CorredoresService.add();
+            //    CorredoresService.add();
                 break;
             case"UPDATE":
-            CorredoresService.update();
+//CorredoresService.update();
                 break;
             case"GET":
-            CorredoresService.get();
+      //      CorredoresService.get();
                 break;
             case"DELETE":
-            CorredoresService.delete();
+    //        CorredoresService.delete();
                 break;
             case"LIST":
-            CorredoresService.list();
+     //       CorredoresService.list();
                 break;
             default:
                 output.println("Dados inválidos");

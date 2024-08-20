@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 
 public class ClienteSocket {
 
-	ClienteSocket() {
+	public ClienteSocket() {
 	}
 
 	public void conectaSocket(String ip, String msgEnviada) throws IOException {

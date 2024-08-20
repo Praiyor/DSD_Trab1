@@ -1,6 +1,8 @@
 package CLiente.Controler;
 import java.io.IOException;
 
+import Controler.ClienteSocket;
+
 public class Controller {
 	private String ip;
 

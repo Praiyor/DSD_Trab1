@@ -29,6 +29,7 @@ public class PilotoService {
 
         try {
             Piloto piloto = new Piloto(request[2], request[3],request[4],request[5]);
+            System.out.println(piloto);
             pessoadao.addPiloto(piloto);
 
             outputMessage = "Piloto cadastrado com sucesso";

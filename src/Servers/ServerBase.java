@@ -14,7 +14,7 @@ public class ServerBase {
     // vai dar o split e chamar o baseController mandando o printwriter que vamos instanciar aqui e o request q é o array de String dps de dar o split
     // ai o server vai dar o out no console do client pelo service dps de realizar a operaçao no service
 
-    ServerSocket server = new ServerSocket(80);
+    ServerSocket server = new ServerSocket(175);
     String requestReceived;
     String [] requestToServer;
 
@@ -40,8 +40,10 @@ public class ServerBase {
                 input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 output = new PrintWriter(connection.getOutputStream(), true);
 
-                requestReceived = input.readLine();
+                System.out.println("Recebendo mensagem");
 
+                requestReceived = input.readLine();
+                System.out.println("U MAL:" +requestReceived);
                 requestToServer = requestReceived.split(";");
 
                 baseController = new BaseController(requestToServer, output);

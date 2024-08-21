@@ -1,4 +1,4 @@
-package Controler;
+package CLiente.Socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,9 +15,8 @@ public class ClienteSocket {
 	public void conectaSocket(String ip, String msgEnviada) throws IOException {
 
 		System.out.println("Criando conex�o...");
-		try (Socket conn = new Socket(ip, 65535);) {
-			
-			conn.setReuseAddress(true);
+		try (Socket conn = new Socket(ip, 175);) {
+
 			System.out.println("Conex�o estabelecida.");
 			
 			PrintWriter out = new PrintWriter(conn.getOutputStream(), true); // true para autoflush

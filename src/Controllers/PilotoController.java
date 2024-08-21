@@ -25,6 +25,8 @@ public class PilotoController {
     public void selecionarOperacao() throws IOException {
         PilotoService pilotoService = new PilotoService(request, output);
 
+        System.out.println(request[0]);
+
         //Operacao a ser selecionada
         switch (request[0]){
             case "INSERT":

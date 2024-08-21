@@ -12,8 +12,8 @@ import java.util.Map;
 public class PessoaDAO {
 
     static Map<String, Piloto> pilotos = new HashMap<>();
-    static Map<String, Tecnico> tecnicos = new HashMap<>();
 
+    static Map<String, Tecnico> tecnicos = new HashMap<>();
     private static PessoaDAO instance;
 
     private static final String no_pilots = "Não possui pilotos registrados";

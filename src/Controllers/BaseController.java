@@ -20,6 +20,8 @@ public class BaseController {
         //Provavelmente vamos colocar o tipo da pessoa ou se é corredores no segundo espaço da string
         //Tipo UPDATE;PILOTO
         String operacao = request[1];
+
+        System.out.println(operacao);
         switch (operacao) {
             case "PILOTO":
                 PilotoController pilotoController = new PilotoController(request, output);

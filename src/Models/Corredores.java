@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Corredores {
@@ -7,8 +8,8 @@ public class Corredores {
     private String torneio;
     private String premio;
 
-    private List<Piloto> corredores;
-    private List<Tecnico> tecnicos;
+    private List<Piloto> corredores = new ArrayList<>();
+    private List<Tecnico> tecnicos = new ArrayList<>();
 
     public Corredores(String torneio, String premio){
         this.torneio = torneio;

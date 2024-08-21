@@ -1,14 +1,14 @@
 package CLiente.Controler;
-import java.io.IOException;
+import CLiente.Socket.ClienteSocket;
 
-import Controler.ClienteSocket;
+import java.io.IOException;
 
 public class Controller {
 	private String ip;
 
 	public void enviarMsgCorredores(String operacao, String torneio, String premio) throws IOException {
 
-		String mensagem = "CORREDORES" + ";" + operacao + ";" + torneio + ";" + premio;
+		String mensagem = operacao + ";" + "CORREDORES" + ";" + torneio + ";" + premio;
 
 		ClienteSocket cli = new ClienteSocket();
 
@@ -18,7 +18,7 @@ public class Controller {
 	
 	public void enviarMsgPiloto(String operacao, String cpf, String nome, String endereco, String carro) throws IOException {
 
-		String mensagem = "PILOTO" + ";" + operacao + ";" + cpf + ";" + nome + ";" + endereco + ";" + carro;
+		String mensagem = operacao + ";" + "PILOTO" + ";" + cpf + ";" + nome + ";" + endereco + ";" + carro;
 
 		ClienteSocket cli = new ClienteSocket();
 
@@ -28,7 +28,7 @@ public class Controller {
 	
 	public void enviarMsgTecnico(String operacao, String cpf, String nome, String endereco, String especialidade, int experiencia) throws IOException {
 
-		String mensagem = "TECNICO" + ";" + operacao + ";" + cpf + ";" + nome + ";" + endereco + ";" + especialidade ;
+		String mensagem = operacao + ";" + "TECNICO" + ";" + cpf + ";" + nome + ";" + endereco + ";" + especialidade ;
 
 		ClienteSocket cli = new ClienteSocket();
 
@@ -45,7 +45,7 @@ public class Controller {
 	}
 
 	public void enviarMsg(String classe, String operacao, String cnpj) throws IOException {
-		String mensagem = classe + ";" + operacao + ";" + cnpj;
+		String mensagem = operacao + ";" + classe + ";" + cnpj;
 
 		ClienteSocket cli = new ClienteSocket();
 
@@ -54,7 +54,7 @@ public class Controller {
 	}
 
 	public void getList(String classe) throws IOException {
-		String mensagem = classe + ";" + "LIST";
+		String mensagem = "LIST" + ";" + classe;
 
 		ClienteSocket cli = new ClienteSocket();
 

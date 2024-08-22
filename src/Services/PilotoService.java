@@ -21,11 +21,6 @@ public class PilotoService {
 
 
     public void add(){
-        // String [] request = mais ou menos isso "update;piloto;cpf;nome;endereco;carro"
-//        String cpf = request[2];
-//        String nome = request[3];
-//        String endereco = request[4];
-//        String carro = request[5];
 
         try {
             Piloto piloto = new Piloto(request[2], request[3],request[4],request[5]);

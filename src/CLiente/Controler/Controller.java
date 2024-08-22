@@ -28,7 +28,7 @@ public class Controller {
 	
 	public void enviarMsgTecnico(String operacao, String cpf, String nome, String endereco, String especialidade, int experiencia) throws IOException {
 
-		String mensagem = operacao + ";" + "TECNICO" + ";" + cpf + ";" + nome + ";" + endereco + ";" + especialidade ;
+		String mensagem = operacao + ";" + "TECNICO" + ";" + cpf + ";" + nome + ";" + endereco + ";" + especialidade + ";" + experiencia;
 
 		ClienteSocket cli = new ClienteSocket();
 

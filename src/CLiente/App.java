@@ -76,6 +76,8 @@ public class App {
 
 			String torneio = "";
 			String premio = "";
+			String cpfPiloto = "";
+			String cpfTecnico = "";
 
 			switch (opcao) {
 			case 1:
@@ -84,8 +86,12 @@ public class App {
 				torneio = s.nextLine();
 				System.out.println("Digite o Premio");
 				premio = s.nextLine();
+				System.out.println("Digite o CPF do Pilto");
+				cpfPiloto = s.nextLine();
+				System.out.println("Digite o CPF do Tecnico");
+				cpfTecnico = s.nextLine();
 				System.out.println(torneio + " " + premio);
-				con.enviarMsgCorredores("INSERT", torneio, premio);
+				con.enviarMsgCorredores("INSERT", torneio, premio, cpfPiloto, cpfTecnico);
 				continuar = false;
 				opcaoCorredores();
 				break;
@@ -97,9 +103,15 @@ public class App {
 
 				System.out.println("Digite o premio");
 				premio = s.nextLine();
+				
+				System.out.println("Digite o CPF do Pilto");
+				cpfPiloto = s.nextLine();
+				
+				System.out.println("Digite o CPF do Tecnico");
+				cpfTecnico = s.nextLine();
 
 				System.out.println(torneio + " " + premio);
-				con.enviarMsgCorredores("UPDATE", torneio, premio);
+				con.enviarMsgCorredores("UPDATE", torneio, premio, cpfPiloto, cpfTecnico);
 				continuar = false;
 				opcaoCorredores();
 				break;
@@ -179,16 +191,16 @@ public class App {
 			case 2:
 				System.out.println("2. Atualizar Piloto");
 
-				System.out.println("Digite o CNPJ da Piloto");
+				System.out.println("Digite o CPF da Piloto");
 				cpf = s.nextLine();
 
 				System.out.println("Digite o Nome da Piloto");
 				nome = s.nextLine();
 
-				System.out.println("Digite o endere�o da Piloto");
+				System.out.println("Digite o endereço da Piloto");
 				endereco = s.nextLine();
 
-				System.out.println("Digite o Sal�rio do Piloto");
+				System.out.println("Digite o Carro do Piloto");
 				carro = s.nextLine();
 
 				System.out.println(nome + " " + cpf + " " + endereco + " " + carro);
@@ -286,7 +298,7 @@ public class App {
 				System.out.println("Digite a Expecialidade do Tecnico");
 				especialidade = s.nextLine();
 
-				System.out.println("Digite a Idade do Tecnico");
+				System.out.println("Digite a Experiencia do Tecnico");
 				experiencia = s.nextInt();
 
 				System.out.println(nome + " " + cpf + " " + endereco + " " + experiencia);

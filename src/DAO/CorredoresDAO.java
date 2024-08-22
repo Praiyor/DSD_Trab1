@@ -1,6 +1,8 @@
  package DAO;
 
 import Models.Corredores;
+import Models.Piloto;
+import Models.Tecnico;
 import Exceptions.CorredorNEncontradoException;
 
 import java.util.HashMap;
@@ -74,5 +76,18 @@ public class CorredoresDAO {
         }
         return notFound;
     }
+   public String AddTecnico(Corredores corredores, Tecnico tecnico) {
+	   corredores.addTecnicos(tecnico);
+	   
+	   return "Tecnico adicionado com sucesso!";
+   }
 
+   public String AddPiloto(Corredores corredores, Piloto piloto) {
+	   corredores.addPiloto(piloto);
+	   
+	   return "Tecnico adicionado com sucesso!";
+   }
+
+
+	
 }

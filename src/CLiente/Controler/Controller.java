@@ -6,9 +6,9 @@ import java.io.IOException;
 public class Controller {
 	private String ip;
 
-	public void enviarMsgCorredores(String operacao, String torneio, String premio) throws IOException {
+	public void enviarMsgCorredores(String operacao, String torneio, String premio, String cpfPiloto, String cpfTecnico) throws IOException {
 
-		String mensagem = operacao + ";" + "CORREDORES" + ";" + torneio + ";" + premio;
+		String mensagem = operacao + ";" + "CORREDORES" + ";" + torneio + ";" + premio + ";" + cpfPiloto + ";" + cpfTecnico;
 
 		ClienteSocket cli = new ClienteSocket();
 

@@ -15,7 +15,7 @@ public class CorredoresDAO {
     private static Map<String, Corredores> corredoresMap = new HashMap<>();
     private static CorredoresDAO instance;
 
-    private static final String noCorredores = "Não possui registros de corredores/tecnicos";
+    private static final String noCorredores = "Não possui registros de corredores";
     private static final String notFound = "Não foi possível encontrar um torneio com o nome passado";
 
     private CorredoresDAO() {}

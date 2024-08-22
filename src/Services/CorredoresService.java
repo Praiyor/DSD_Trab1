@@ -31,7 +31,7 @@ public class CorredoresService {
             corredor.addPiloto(PessoaDAO.getInstance().getPiloto(request[4]));
             corredor.addTecnicos(PessoaDAO.getInstance().getTecnico(request[5]));
             
-			outputMessage = "Corredor cadastrado com sucesso";
+			outputMessage = "Corredores cadastrado com sucesso";
 
 		} catch (Exception e) {
 			outputMessage = "Ocorreu um erro ao tentar cadastrar o corredor, segue o erro:" + e.getMessage();

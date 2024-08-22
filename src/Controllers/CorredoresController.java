@@ -23,19 +23,31 @@ public class CorredoresController {
 
         switch (request[0]){
             case "INSERT":
-             corredoresService.add();
+                corredoresService.add();
                 break;
             case"UPDATE":
-             corredoresService.update();
+                corredoresService.update();
                 break;
             case"GET":
-            corredoresService.get();
+                corredoresService.get();
                 break;
             case"DELETE":
-            corredoresService.delete();
+                corredoresService.delete();
                 break;
             case"LIST":
-            corredoresService.list();
+                corredoresService.list();
+                break;
+            case"ADDPIL":
+                corredoresService.addPiloto();
+                break;
+            case"ADDTEC":
+                corredoresService.addTecnico();
+                break;
+            case"REMOVEPIL":
+                corredoresService.removePiloto();
+                break;
+            case"REMOVETEC":
+                corredoresService.removeTecnico();
                 break;
             default:
                 output.println("Dados inválidos");

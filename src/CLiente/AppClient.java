@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import CLiente.Controler.*;
 
-public class App {
+public class AppClient {
 
 	public static Controller con;
 	public static Scanner s = new Scanner(System.in);
@@ -68,7 +68,11 @@ public class App {
 			System.out.println("3. Obter Corredores");
 			System.out.println("4. Deletar Corredores");
 			System.out.println("5. Obter todos os Corredores");
-			System.out.println("6. Voltar");
+			System.out.println("6. Adicionar um piloto aos Corredores");
+			System.out.println("7. Adicionar um tecnico aos Corredores");
+			System.out.println("8. Remover um piloto aos Corredores");
+			System.out.println("9. Remover um tecnico aos Corredores");
+			System.out.println("10. Voltar");
 			System.out.print("Opção: ");
 
 			int opcao = s.nextInt();
@@ -82,7 +86,7 @@ public class App {
 			switch (opcao) {
 			case 1:
 				System.out.println("1. Criar Corredores ");
-				System.out.println("Digite o Nome dos Corredores");
+				System.out.println("Digite o nome do Torneio");
 				torneio = s.nextLine();
 				System.out.println("Digite o Premio");
 				premio = s.nextLine();
@@ -98,20 +102,14 @@ public class App {
 			case 2:
 				System.out.println("2. Atualizar Corredores");
 
-				System.out.println("Digite o Torneio");
+				System.out.println("Digite o Torneio a ser atualizado");
 				torneio = s.nextLine();
 
 				System.out.println("Digite o premio");
 				premio = s.nextLine();
-				
-				System.out.println("Digite o CPF do Pilto");
-				cpfPiloto = s.nextLine();
-				
-				System.out.println("Digite o CPF do Tecnico");
-				cpfTecnico = s.nextLine();
 
 				System.out.println(torneio + " " + premio);
-				con.enviarMsgCorredores("UPDATE", torneio, premio, cpfPiloto, cpfTecnico);
+				con.enviarUpdateCorredores("UPDATE", torneio, premio);
 				continuar = false;
 				opcaoCorredores();
 				break;
@@ -141,6 +139,53 @@ public class App {
 				opcaoCorredores();
 				break;
 			case 6:
+				System.out.println("6. Adicionar um piloto aos Corredores");
+				System.out.println("Digite o nome do torneio");
+				torneio = s.nextLine();
+
+				System.out.println("Digite o cpf do Piloto");
+				cpfPiloto = s.nextLine();
+
+				con.addOnCorredores("ADDPIL", torneio, cpfPiloto);
+
+				continuar = false;
+				opcaoCorredores();
+			case 7:
+				System.out.println("7. Adicionar um tecnico aos Corredores");
+				System.out.println("Digite o nome do torneio");
+				torneio = s.nextLine();
+
+				System.out.println("Digite o CPF do Tecnico");
+				cpfTecnico = s.nextLine();
+
+				con.addOnCorredores("ADDTEC", torneio, cpfTecnico);
+
+				continuar = false;
+				opcaoCorredores();
+			case 8:
+				System.out.println("8. Remover um piloto aos Corredores");
+				System.out.println("Digite o nome do torneio");
+				torneio = s.nextLine();
+				System.out.println("Digite o cpf do Piloto");
+				cpfPiloto = s.nextLine();
+
+				con.removeOnCorredores("REMOVEPIL", torneio, cpfPiloto);
+
+				continuar = false;
+				opcaoCorredores();
+			case 9:
+				System.out.println("9. Remover um tecnico aos Corredores");
+				System.out.println("Digite o nome do torneio");
+				torneio = s.nextLine();
+
+				System.out.println("Digite o CPF do Tecnico");
+				cpfTecnico = s.nextLine();
+
+				con.removeOnCorredores("REMOVETEC", torneio, cpfTecnico);
+
+				continuar = false;
+				opcaoCorredores();
+			case 10:
 				continuar = false;
 				opcoes();
 				break;
@@ -191,7 +236,7 @@ public class App {
 			case 2:
 				System.out.println("2. Atualizar Piloto");
 
-				System.out.println("Digite o CPF da Piloto");
+				System.out.println("Digite o CPF da Piloto a ser atualizado");
 				cpf = s.nextLine();
 
 				System.out.println("Digite o Nome da Piloto");
@@ -220,7 +265,7 @@ public class App {
 				break;
 			case 4:
 				System.out.println("4. Deletar Piloto");
-				System.out.println("Digite o CPF do Piloto");
+				System.out.println("Digite o CPF do Piloto a ser deletado");
 				cpf = s.nextLine();
 				con.enviarMsg("PILOTO", "DELETE", cpf);
 				continuar = false;
@@ -286,7 +331,7 @@ public class App {
 			case 2:
 				System.out.println("2. Atualizar Tecnico");
 
-				System.out.println("Digite o CPF do Tecnico");
+				System.out.println("Digite o CPF do Tecnico a ser atualizado");
 				cpf = s.nextLine();
 
 				System.out.println("Digite o Nome do Tecnico");
@@ -318,7 +363,7 @@ public class App {
 				break;
 			case 4:
 				System.out.println("4. Deletar Tecnico");
-				System.out.println("Digite o CPF do Tecnico");
+				System.out.println("Digite o CPF do Tecnico a ser deletado");
 				cpf = s.nextLine();
 				con.enviarMsg("TECNICO", "DELETE", cpf);
 				continuar = false;

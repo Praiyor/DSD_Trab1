@@ -25,6 +25,7 @@ public class CorredoresService {
 	public void add() {
 
 		try {
+			System.out.println(request);
 			Corredores corredor = new Corredores(request[2], request[3] );
 			corredoresdao.addCorredores(corredor);
             corredor.addPiloto(PessoaDAO.getInstance().getPiloto(request[4]));
@@ -41,9 +42,9 @@ public class CorredoresService {
 	}
 
 	public void update() {
-		// tem que testar fiz aquela gambira
 
 		try {
+			outputMessage = corredoresdao.atualizaCorredores(request[2], request[3]);
 
 		} catch (Exception e) {
 			outputMessage = e.getMessage();
@@ -54,8 +55,7 @@ public class CorredoresService {
 
 	public void get() {
 		try {
-			Corredores corredor = corredoresdao.getCorredores(request[2]);
-			outputMessage = corredor.toString();
+			outputMessage = corredoresdao.getCorredores(request[2]);
 		} catch (Exception e) {
 			outputMessage = e.getMessage();
 		}
@@ -77,6 +77,52 @@ public class CorredoresService {
 
 		try {
 			outputMessage = corredoresdao.listCorredores();
+		} catch (Exception e) {
+			outputMessage = e.getMessage();
+		}
+
+		output.println(outputMessage);
+	}
+
+	public void addPiloto(){
+		try {
+			Piloto piloto = PessoaDAO.getInstance().getPiloto(request[3]);
+			outputMessage = corredoresdao.AddPiloto(request[2],piloto);
+		} catch (Exception e) {
+			outputMessage = e.getMessage();
+		}
+
+		output.println(outputMessage);
+	}
+
+	public void addTecnico(){
+		try {
+			Tecnico tecnico = PessoaDAO.getInstance().getTecnico(request[3]);
+			outputMessage = corredoresdao.AddTecnico(request[2],tecnico);
+		} catch (Exception e) {
+			outputMessage = e.getMessage();
+		}
+
+		output.println(outputMessage);
+	}
+
+	public void removePiloto() {
+		try {
+			Piloto piloto = PessoaDAO.getInstance().getPiloto(request[3]);
+
+			outputMessage = corredoresdao.removePiloto(request[2], piloto);
+		} catch (Exception e) {
+			outputMessage = e.getMessage();
+		}
+
+		output.println(outputMessage);
+	}
+
+	public void removeTecnico() {
+		try {
+			Tecnico tecnico = PessoaDAO.getInstance().getTecnico(request[3]);
+
+			outputMessage = corredoresdao.removeTecnico(request[2], tecnico);
 		} catch (Exception e) {
 			outputMessage = e.getMessage();
 		}

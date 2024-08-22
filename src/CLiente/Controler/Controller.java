@@ -44,13 +44,37 @@ public class Controller {
 		this.ip = ip;
 	}
 
-	public void enviarMsg(String classe, String operacao, String cnpj) throws IOException {
-		String mensagem = operacao + ";" + classe + ";" + cnpj;
+	public void enviarMsg(String classe, String operacao, String identificador) throws IOException {
+		String mensagem = operacao + ";" + classe + ";" + identificador;
 
 		ClienteSocket cli = new ClienteSocket();
 
 		cli.conectaSocket(getIp(), mensagem);
 
+	}
+
+	public void enviarUpdateCorredores(String operacao, String torneio, String premio) throws IOException {
+		String mensagem = operacao + ";" + "CORREDORES" +";" + torneio + ";" + premio;
+
+		ClienteSocket cli = new ClienteSocket();
+
+		cli.conectaSocket(getIp(), mensagem);
+	}
+
+	public void addOnCorredores(String operacao, String torneio, String cpf) throws IOException {
+		String mensagem = operacao + ";"+ "CORREDORES" + ";" + torneio + ";" + cpf;
+
+		ClienteSocket cli = new ClienteSocket();
+
+		cli.conectaSocket(getIp(), mensagem);
+	}
+
+	public void removeOnCorredores(String operacao, String torneio, String cpf) throws IOException {
+		String mensagem = operacao + ";"+ "CORREDORES" + ";" + torneio + ";" + cpf;
+
+		ClienteSocket cli = new ClienteSocket();
+
+		cli.conectaSocket(getIp(), mensagem);
 	}
 
 	public void getList(String classe) throws IOException {

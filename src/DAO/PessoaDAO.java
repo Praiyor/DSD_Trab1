@@ -94,7 +94,7 @@ public class PessoaDAO {
             return no_pilots;
         }
         StringBuilder pilots = new StringBuilder();
-        pilots.append(pilotos.size()).append("\n");
+        pilots.append("Quantidade de Pilotos: "+ pilotos.size()).append("\n");
 
         for(Piloto piloto : pilotos.values()) {
             pilots.append(piloto.toString());
@@ -110,7 +110,7 @@ public class PessoaDAO {
             return no_tec;
         }
         StringBuilder tecs = new StringBuilder();
-        tecs.append(tecnicos.size()).append("\n");
+        tecs.append("Quantidade de Tecnicos: " + tecnicos.size()).append("\n");
 
         for(Tecnico tec : tecnicos.values()){
             tecs.append(tec.toString());

@@ -13,7 +13,7 @@ public class Corredores {
 
     public Corredores(String torneio, String premio){
         this.torneio = torneio;
-        this.premio = torneio;
+        this.premio = premio;
     }
 
     public String getTorneio(){
@@ -47,24 +47,29 @@ public class Corredores {
     public void setTecnicos(List<Tecnico> tecnico) {
         this.tecnicos  = tecnico;
     }
-    
+
     public void addTecnicos(Tecnico tecnicos) {
         this.tecnicos.add(tecnicos);
     }
-    
+
     public void addPiloto(Piloto piloto) {
         this.corredores.add(piloto);
+    }
+
+    public boolean removePiloto(Piloto piloto) {
+        return this.corredores.remove(piloto);
+    }
+
+    public boolean removeTecnico(Tecnico tecnico) {
+        return this.tecnicos.remove(tecnico);
     }
 
 
     //Falta atualizar para o mesmo padrao de pessoa agora, pra facilitar a hora de mandar pro client
     @Override
     public String toString() {
-        return "Corredores{" +
-                "torneio='" + torneio + '\'' +
-                ", premio='" + premio + '\'' +
-                ", corredores=" + corredores +
-                ", tecnicos=" + tecnicos +
-                '}';
+        return "Corredores: " +
+                "torneio = '" + torneio + '\'' +
+                ", premio = '" + premio + '\'';
     }
 }

@@ -2,7 +2,7 @@ import java.io.IOException;
 
 import Servers.ServerBase;
 
-public class Main {
+public class MainServer {
 
     public static void main(String[] args) throws IOException {
        

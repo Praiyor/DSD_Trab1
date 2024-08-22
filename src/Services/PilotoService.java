@@ -36,7 +36,6 @@ public class PilotoService {
         output.println(outputMessage);
     }
     public void update(){
- // tem que testar
 
         try {
             outputMessage = pessoadao.atualizaPiloto(request[2], request[3], request[4],request[5]);
@@ -70,7 +69,6 @@ public class PilotoService {
     }
     public void list(){
         try {
-            //Precisamos testar pra ver se vem tudo correto
             outputMessage = pessoadao.listPilotos();
             System.out.println(outputMessage);
         }catch (Exception e){

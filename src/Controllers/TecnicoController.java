@@ -18,7 +18,6 @@ public class TecnicoController {
     }
 
 
-
     public void selecionarOperacao() throws IOException {
         TecnicoService tecnicoService = new TecnicoService(request, output);
 

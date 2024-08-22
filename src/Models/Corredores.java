@@ -64,8 +64,6 @@ public class Corredores {
         return this.tecnicos.remove(tecnico);
     }
 
-
-    //Falta atualizar para o mesmo padrao de pessoa agora, pra facilitar a hora de mandar pro client
     @Override
     public String toString() {
         return "Corredores: " +

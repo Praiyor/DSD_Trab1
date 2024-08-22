@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-// fiz uma cópia da classe PessoaDAO
 public class CorredoresDAO {
 
     private static Map<String, Corredores> corredoresMap = new HashMap<>();

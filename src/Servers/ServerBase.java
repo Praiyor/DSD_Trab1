@@ -43,7 +43,6 @@ public class ServerBase {
                 System.out.println("Recebendo mensagem");
 
                 requestReceived = input.readLine();
-                System.out.println("U MAL:" +requestReceived);
                 requestToServer = requestReceived.split(";");
 
                 baseController = new BaseController(requestToServer, output);

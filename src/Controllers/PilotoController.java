@@ -9,10 +9,8 @@ import java.io.PrintWriter;
 public class PilotoController {
 
 
-    //Pegar oq vem do client
     protected String[] request;
 
-    //Dar o print no console do client pelo controller mesmo
     protected PrintWriter output;
 
 

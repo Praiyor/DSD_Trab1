@@ -94,9 +94,11 @@ public class PessoaDAO {
             return no_pilots;
         }
         StringBuilder pilots = new StringBuilder();
+        pilots.append(pilotos.size()).append("\n");
 
-        for(Piloto piloto : pilotos.values()){
+        for(Piloto piloto : pilotos.values()) {
             pilots.append(piloto.toString());
+            pilots.append("\n");
         }
 
         return pilots.toString();
@@ -104,13 +106,15 @@ public class PessoaDAO {
     }
 
     public String listTecnicos(){
-        if (pilotos.isEmpty()){
+        if (tecnicos.isEmpty()){
             return no_tec;
         }
         StringBuilder tecs = new StringBuilder();
+        tecs.append(tecnicos.size()).append("\n");
 
         for(Tecnico tec : tecnicos.values()){
             tecs.append(tec.toString());
+            tecs.append("\n");
         }
 
         return tecs.toString();

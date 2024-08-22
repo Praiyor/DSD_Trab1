@@ -42,11 +42,12 @@ public class TecnicoService {
         // tem que testar 
         try {
             int experiencia = Integer.parseInt(request[6]);
+
+            outputMessage = pessoadao.atualizaTecnico(request[2], request[3], request[4],request[5], experiencia);
             
         }catch (Exception e){
             outputMessage = e.getMessage();
         }
-        outputMessage = "Tecnico Atualizado com sucesso";
         output.println(outputMessage);
     }
     public void get(){
@@ -68,7 +69,8 @@ public class TecnicoService {
         }catch (Exception e){
             outputMessage = e.getMessage();
         }
-//        pessoadao.removeTecnico();
+
+        output.println(outputMessage);
     }
     public void list(){
         try {

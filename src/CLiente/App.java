@@ -217,7 +217,7 @@ public class App {
 			case 5:
 				System.out.println("5. Obter todos os Pilotos");
 
-				con.getList("PILOTOS");
+				con.getList("PILOTO");
 				continuar = false;
 				opcaoPiloto();
 				break;

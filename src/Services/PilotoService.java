@@ -39,6 +39,7 @@ public class PilotoService {
  // tem que testar
 
         try {
+            outputMessage = pessoadao.atualizaPiloto(request[2], request[3], request[4],request[5]);
           
          }catch (Exception e){
              outputMessage = e.getMessage();
@@ -71,6 +72,7 @@ public class PilotoService {
         try {
             //Precisamos testar pra ver se vem tudo correto
             outputMessage = pessoadao.listPilotos();
+            System.out.println(outputMessage);
         }catch (Exception e){
             outputMessage = e.getMessage();
         }

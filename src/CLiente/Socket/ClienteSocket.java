@@ -23,10 +23,15 @@ public class ClienteSocket {
 			BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
 			out.println(msgEnviada);
-			System.out.println(msgEnviada);
+//			System.out.println(msgEnviada);
 
-			String msgRecebida = in.readLine();
-			System.out.println("Mensagem recebida " + msgRecebida);
+			StringBuilder msgInteira = new StringBuilder();
+			String msgRecebida;
+			while((msgRecebida = in.readLine()) != null && !msgRecebida.isEmpty()){
+				System.out.println();
+				msgInteira.append(msgRecebida).append("\n");
+			}
+			System.out.println(msgInteira);
 
 		}
 

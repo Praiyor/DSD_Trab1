@@ -23,7 +23,6 @@ public class CorredoresController {
 
         switch (request[0]){
             case "INSERT":
-                //Segui o msm padrão da classe Piloto.
              corredoresService.add();
                 break;
             case"UPDATE":

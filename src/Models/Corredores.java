@@ -44,9 +44,18 @@ public class Corredores {
         return tecnicos;
     }
 
-    public void setTecnicos(List<Tecnico> tecnicos) {
-        this.tecnicos = tecnicos;
+    public void setTecnicos(List<Tecnico> tecnico) {
+        this.tecnicos  = tecnico;
     }
+    
+    public void addTecnicos(Tecnico tecnicos) {
+        this.tecnicos.add(tecnicos);
+    }
+    
+    public void addPiloto(Piloto piloto) {
+        this.corredores.add(piloto);
+    }
+
 
     //Falta atualizar para o mesmo padrao de pessoa agora, pra facilitar a hora de mandar pro client
     @Override

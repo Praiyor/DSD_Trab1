@@ -21,13 +21,7 @@ public class CorredoresService {
     }
 
     public void add() {
-        // String [] request = mais ou menos isso
-        // "update;piloto;cpf;nome;endereco;carro"
-        // String cpf = request[2];
-        // String nome = request[3];
-        // String endereco = request[4];
-        // String carro = request[5];
-
+        
         try {
             Corredores corredor = new Corredores(request[2], request[3]);
             corredoresdao.addCorredores(corredor);

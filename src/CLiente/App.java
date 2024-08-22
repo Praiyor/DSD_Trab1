@@ -67,7 +67,7 @@ public class App {
 			System.out.println("2. Atualizar Corredores");
 			System.out.println("3. Obter Corredores");
 			System.out.println("4. Deletar Corredores");
-			System.out.println("5. Obter todos ss Corredores");
+			System.out.println("5. Obter todos os Corredores");
 			System.out.println("6. Voltar");
 			System.out.print("Opção: ");
 
@@ -240,7 +240,7 @@ public class App {
 			System.out.println("2. Atualizar Tecnico");
 			System.out.println("3. Obter Tecnico");
 			System.out.println("4. Deletar Tecnico");
-			System.out.println("5. Obter todos os Jovens aprendizes");
+			System.out.println("5. Obter todos os Tecnicos");
 			System.out.println("6. Voltar");
 			System.out.print("Opção: ");
 

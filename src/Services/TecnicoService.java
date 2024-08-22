@@ -45,7 +45,7 @@ public class TecnicoService {
         }catch (Exception e){
             outputMessage = e.getMessage();
         }
-
+        outputMessage = "Tecnico Atualizado com sucesso";
         output.println(outputMessage);
     }
     public void get(){

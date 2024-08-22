@@ -1,7 +1,9 @@
 package Controllers;
 
+import Services.CorredoresService;
 import Services.PilotoService;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CorredoresController {
@@ -15,24 +17,26 @@ public class CorredoresController {
         this.output = output;
     }
 
-    public void selecionarOperacao(){
+    public void selecionarOperacao() throws IOException{
+    	
+    	CorredoresService corredoresService = new CorredoresService(request, output);
 
         switch (request[0]){
             case "INSERT":
                 //Segui o msm padrão da classe Piloto.
-            //    CorredoresService.add();
+             corredoresService.add();
                 break;
             case"UPDATE":
-//CorredoresService.update();
+             corredoresService.update();
                 break;
             case"GET":
-      //      CorredoresService.get();
+            corredoresService.get();
                 break;
             case"DELETE":
-    //        CorredoresService.delete();
+            corredoresService.delete();
                 break;
             case"LIST":
-     //       CorredoresService.list();
+            corredoresService.list();
                 break;
             default:
                 output.println("Dados inválidos");
